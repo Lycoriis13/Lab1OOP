@@ -1,0 +1,4 @@
+Clean Code: A Handbook of Agile Software Craftsmanship, Robert C. Martin, 2008, 9782253029816
+C# in Depth: Fourth Edition 4th Edition, Jon Skeet, 2013, 9780140435280
+Design Patterns: Elements of Reusable Object-Oriented Software, 
+Erich Gamma, 1995, 9780345814600
