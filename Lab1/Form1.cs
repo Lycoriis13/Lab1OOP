@@ -18,10 +18,13 @@ namespace Lab1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+         private void Form1_Load(object sender, EventArgs e)
+ {
+     // Вкажіть шлях до вашого файлу 
+     string filePath = @"G:\OOP\Lab1\list.txt";
+     LoadBooksFromFile(filePath);
+     UpdateBookList();
+ }
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
@@ -75,5 +78,32 @@ namespace Lab1
             lstBooks.DataSource = library.GetAllBooks();
             lstBooks.DisplayMember = "Title"; // Налаштуйте властивість для відображення
         }
+
+        public void LoadBooksFromFile(string filePath)
+{
+    if (File.Exists(filePath))
+    {
+        var lines = File.ReadAllLines(filePath);
+        foreach (var line in lines)
+        {
+            var parts = line.Split(';');
+            if (parts.Length == 4)
+            {
+                var book = new Book(parts[0], parts[1], int.Parse(parts[2]), parts[3]);
+                library.AddBook(book);
+            }
+        }
+    }
+    else
+    {
+        MessageBox.Show("File not found.");
+    }
+}
+
+private void Form1_сs(object sender, EventArgs e)
+{
+    LoadBooksFromFile(@"G:\OOP\Lab1\list.txt");
+    UpdateBookList();
+}
     }
 }
